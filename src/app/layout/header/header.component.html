@@ -1,0 +1,39 @@
+<nav>
+  <div id="Home" class="wrapper">
+    <div id="Name" class="logo"></div>
+
+    <ul class="nav-links">
+      <li>
+        <a
+          [routerLink]="['/home']"
+          [routerLinkActive]="'bg-danger rounded'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/products']"
+          [routerLinkActive]="'bg-danger rounded'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Products</a
+        >
+      </li>
+      <li>
+        <a
+          [routerLink]="['/account']"
+          [routerLinkActive]="'bg-danger rounded'"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >Account</a
+        >
+      </li>
+    </ul>
+    <li style="list-style-type: none">
+      <a
+        style="color: rgb(255, 255, 255); text-decoration: none"
+        href="./index.html"
+        >Logout</a
+      >
+    </li>
+  </div>
+</nav>
