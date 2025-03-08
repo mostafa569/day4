@@ -1,0 +1,76 @@
+<div class="mt-5 container p-4 bg-light shadow rounded w-50">
+  <h1 class="mb-4 text-center text-primary" >{{productId==0?"Add new product":"Edit Product"}}</h1>
+
+  <form (submit)="productHandler()" [formGroup]="productForm">
+    <div class="mb-3">
+      <label for="productName" class="form-label fw-semibold"
+        >Product Name</label
+      >
+      <input
+        type="text"
+        class="form-control shadow-sm"
+        id="productName"
+        placeholder="Enter Product Name"
+        name="name"
+        formControlName="name"
+      />
+      @if(getName.touched){ @if(getName.hasError('required')){
+      <div id="emailHelp" class="form-text text-danger lead fs-5">
+        Product Name is required
+      </div>
+      } @if(getName.hasError('minlength')){
+      <div id="emailHelp" class="form-text text-danger lead fs-5">
+        Product Name must be grater than 3
+      </div>
+      } }
+    </div>
+
+    <!-- Product Price -->
+    <div class="mb-3">
+      <label for="productPrice" class="form-label fw-semibold"
+        >Product Price</label
+      >
+      <input
+        type="number"
+        class="form-control shadow-sm"
+        id="productPrice"
+        placeholder="Enter Product Price"
+        name="price"
+        formControlName="price"
+      />
+      @if(getPrice.touched){ @if(getPrice.hasError('required')){
+        <div id="emailHelp" class="form-text text-danger lead fs-5">
+          Product Price is required
+        </div>
+        }}
+    </div>
+
+    <!-- Product Quantity -->
+    <div class="mb-3">
+      <label for="productQuantity" class="form-label fw-semibold"
+        >Product Quantity</label
+      >
+      <input
+        type="number"
+        class="form-control shadow-sm"
+        id="productQuantity"
+        placeholder="Enter Product Quantity"
+        name="quantity"
+        formControlName="quantity"
+      />
+      @if(getQuantity.touched){ @if(getQuantity.hasError('required')){
+        <div id="emailHelp" class="form-text text-danger lead fs-5">
+          Product Quantity is required
+        </div>
+        }}
+    </div>
+    <p>{{ productForm.value | json }}</p>
+
+    <!-- Submit Button -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-lg w-100">
+        <i class="bi bi-plus-circle me-2"></i> {{productId==0?"Add new product":"Edit Product"}}
+      </button>
+    </div>
+  </form>
+</div>
